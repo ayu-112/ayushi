@@ -1,0 +1,144 @@
+ANS 1: CREATE TABLE student ( id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(50), age VARCHAR(100), email VARCHAR(50));
+
+
+ANS 2: CREATE TABLE course ( course_id INT AUTO_INCREMENT PRIMARY KEY, title VARCHAR(100) NOT NULL, credits INT NOT NULL );
+
+ANS 3: ALTER TABLE student ADD grade VARCHAR(50);
+
+ANS 4: ALTER TABLE student MODIFY COLUMN email INT(50);
+
+ANS 5: CREATE TABLE enrollments (
+    student_id INT,
+    course_id INT,
+    date DATE,
+
+    FOREIGN KEY (student_id) REFERENCES student(id),
+    FOREIGN KEY (course_id) REFERENCES course(course_id)
+);
+
+ANS 6: ALTER TABLE course DROP COLUMN credits;
+
+ANS 7: DROP TABLE enrollments;
+
+ANS 8: ALTER TABLE student RENAME TO learners;
+
+ANS 9: CREATE INDEX learners_email ON learners(email);
+
+ANS 10: CREATE TABLE departments (dept_id INT AUTO_INCREMENT PRIMARY key,
+                          dept_name VARCHAR(20) );
+
+ANS 11:
+
+ANS 12: TRUNCATE table course;
+
+ANS 13: COMMENT ON TABLE learners IS 'This table stores information about enrolled learners.';
+
+ANS 14:
+
+
+ANS 15:
+
+ ANS 16: DROP VIEW learner_summary ;
+
+ ANS 17: 
+
+
+ ANS 18:
+
+
+ ANS 19:
+
+ ANS 20: ALTER TABLE learners DROP INDEX learners_email;
+
+
+
+
+
+B. DML – Data Manipulation Language (insert, update, delete)
+
+
+ANS 1: INSERT INTO `students`(`id`, `name`, `email`, `age`, `grade`) VALUES ('1','ayushi','a@gmail.com','12','a'), ('2','dhruv','d@gmail.com','13','b'), ('3','jay','j@gmail.com','14','c'), ('4','ayu','g@gmail.com','15','d');
+
+ANS 2: INSERT INTO `course`(`course_id`, `title`) VALUES ('1','hello'), ('2','world');
+
+ANS 3: SELECT DISTINCT departments FROM course;
+
+ANS 4: UPDATE `students` SET `age`='27' WHERE `id` = '2';
+
+ANS 5: UPDATE course SET title = 'New Course Title' WHERE course_id = 1;
+
+ANS 6: DELETE FROM `students` WHERE age < 18;
+
+
+ANS 7: 
+
+ANS 8:
+
+ANS 9: 
+
+ANS 10: INSERT INTO course (course_id, title, enrollment_no)
+           VALUES
+            (1, 'hello', 10),
+            (2, 'world', 11),
+            (3, 'asfdzvxf', 12);
+ 
+
+ANS 11:  DELETE FROM course WHERE enrollment_no IN(11,12);
+
+
+ANS 12:
+
+ANS 13: 
+
+ANS 14: 
+
+
+ANS 15:
+
+
+
+ANS 16:
+
+
+ANS 17: DELETE FROM `students` WHERE id IN(4,5);
+
+
+ANS 18: 
+
+ANS 19:
+
+
+ANS 20:
+
+
+
+
+
+
+C. DQL – Data Query Language (SELECT, joins, grouping)
+
+
+ANS 1: SELECT * FROM students;
+
+ANS 2: SELECT name , age FROM students WHERE age > 20;
+
+ANS 3: SELECT DISTINCT departments FROM `course`;
+
+ANS 4: SELECT students.name, students.email, departments.dept_name,departments.dept_teacher FROM `departments`
+        INNER JOIN   students ON departments.dept_id_fk = students.id;
+
+ANS 5: SELECT students.name, students.email, departments.dept_name, departments.dept_teacher FROM students LEFT JOIN departments ON students.id = departments.dept_id_fk;
+
+ 
+ANS 6:
+
+
+ANS 7:
+
+ANS 8:
+
+
+ANS 9:
+
+
+ANS 10: SELECT age FROM `students` ORDER BY age DESC LIMIT 5;
