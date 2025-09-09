@@ -6,10 +6,6 @@
     <title>Check Number Sign</title>
 </head>
 <body>
-
-    <h2>Check if a Number is Positive or Negative</h2>
-
-
     <input type="number" id="numinput">
     <button onclick="checkNumber()">check</button>
     
